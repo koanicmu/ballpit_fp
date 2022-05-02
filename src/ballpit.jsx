@@ -27,6 +27,7 @@ function InstancedSpheres({ count = 200 }) {
       args={[null, null, count]}
       onClick={event => {
         api.applyImpulse([0, 10, 0], [0, 0, 0]);
+        console.log("Ball clicked");
       }}
     >
       <sphereBufferGeometry args={[0.2, 32, 32]} />
