@@ -14,13 +14,21 @@ export default function Ballpit(props) {
 
 function InstancedSpheres({ count = 200 }) {
   const { viewport } = useThree();
-  const [ref] = useSphere(index => ({
+  const [ref, api] = useSphere(index => ({
     mass: 100,
     position: [randFloat(-10, 10), randFloat(5, 10), randFloat(-10, 10)],
     args: [0.2],
   }));
   return (
-    <instancedMesh ref={ref} castShadow receiveShadow args={[null, null, count]}>
+    <instancedMesh
+      ref={ref}
+      castShadow
+      receiveShadow
+      args={[null, null, count]}
+      onClick={event => {
+        api.applyImpulse([0, 10, 0], [0, 0, 0]);
+      }}
+    >
       <sphereBufferGeometry args={[0.2, 32, 32]} />
       <meshLambertMaterial color='#ff7b00' />
     </instancedMesh>
