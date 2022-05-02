@@ -6,7 +6,7 @@ const randFloat = MathUtils.randFloat;
 
 export default function Ballpit(props) {
   return (
-    <group position={[0, 3, -20]}>
+    <group position={[0, 0, -20]}>
       <InstancedSpheres />
     </group>
   );
@@ -16,7 +16,7 @@ function InstancedSpheres({ count = 200 }) {
   const { viewport } = useThree();
   const [ref] = useSphere(index => ({
     mass: 100,
-    position: [randFloat(-10, 10), 5, randFloat(-10, 10)],
+    position: [randFloat(-10, 10), randFloat(5, 10), randFloat(-10, 10)],
     args: [0.2],
   }));
   return (

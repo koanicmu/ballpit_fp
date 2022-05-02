@@ -19,7 +19,7 @@ export const Player = props => {
   const [ref, api] = useSphere(() => ({
     mass: 10,
     args: [2, 2],
-    type: "Kinematic",
+    type: "Dynamic",
     position: position,
     ...props,
   }));

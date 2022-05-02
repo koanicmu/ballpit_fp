@@ -12,11 +12,11 @@ export default function App({ ready }) {
     <>
       <Stats showPanel={0} className='stats' />
       <Canvas shadows camera={{ fov: 60, near: 0.1, far: 10000 }}>
-        <ambientLight intensity={0.1} />
+        <ambientLight intensity={0.5} />
         <Sky sunPosition={[70, -2, 0]} distance={10000} />
         <Environment files='/textures/sunset.hdr' />
 
-        <Physics gravity={[0, 0, 0]} defaultContactMaterial={{ restitution: 0.5 }}>
+        <Physics gravity={[0, -9.8, 0]} defaultContactMaterial={{ restitution: 0.1 }}>
           <Player />
 
           <Debug color='blue' scale={1.2}>
